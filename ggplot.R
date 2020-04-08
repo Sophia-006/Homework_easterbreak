@@ -90,8 +90,9 @@ gapminder %>%
     geom_line()+
     facet_wrap(~country)
   
-  gapminder %>% 
+gapminder %>% 
     ggplot(aes(x=gdpPercap, y=lifeExp, colour= continent, size= pop))+
     geom_point()+
     scale_x_log10()+
     facet_wrap(~year)
+
