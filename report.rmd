@@ -1,0 +1,44 @@
+---
+title: "ggplot_markdown"
+output: html_document
+author: Sophia
+date: 8/4/2020
+---
+
+# Title
+Create some **bold** text or in _italics_.
+
+```
+a block of code
+```
+
+```{r}
+```
+
+*a bold with double asterisks
+*italics with underscores
+* code with three backticks
+
+## Initialisation
+
+```{r,echo = TRUE, results='hide', message=FALSE}
+library (tidyverse) 
+gapminder <-  read_csv ("Data/gapminder_data.csv")
+
+```
+
+### Data
+
+Write some paragraphs
+
+```{r}
+a_countries <- filter(gapminder, str_starts(country, "A"))
+                      
+```
+
+#### Plotting
+```{r}
+ggplot(data= a_countries, aes(x= year, y= lifeExp, colour= continent))+
+  geom_line() +
+  facet_wrap (~country)
+```
